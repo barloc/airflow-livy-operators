@@ -91,6 +91,7 @@ class LivyBatchSensor(BaseSensorOperator):
         soft_fail=False,
         mode="poke",
         spill_driver_logs=False,
+        **kwargs,
     ):
         if poke_interval < 1:
             raise AirflowException(
@@ -108,6 +109,7 @@ class LivyBatchSensor(BaseSensorOperator):
             soft_fail=soft_fail,
             mode=mode,
             task_id=task_id,
+            **kwargs,
         )
         self.batch_id = batch_id
         self.http_conn_id = http_conn_id

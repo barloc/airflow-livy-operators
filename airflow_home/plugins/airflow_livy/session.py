@@ -67,6 +67,7 @@ class LivySessionCreationSensor(BaseSensorOperator):
         http_conn_id="livy",
         soft_fail=False,
         mode="poke",
+        **kwargs,
     ):
         validate_timings(poke_interval, timeout)
         super().__init__(
@@ -75,6 +76,7 @@ class LivySessionCreationSensor(BaseSensorOperator):
             soft_fail=soft_fail,
             mode=mode,
             task_id=task_id,
+            **kwargs,
         )
         self.session_id = session_id
         self.http_conn_id = http_conn_id
@@ -111,6 +113,7 @@ class LivyStatementSensor(BaseSensorOperator):
         http_conn_id="livy",
         soft_fail=False,
         mode="poke",
+        **kwargs,
     ):
         validate_timings(poke_interval, timeout)
         super().__init__(
@@ -119,6 +122,7 @@ class LivyStatementSensor(BaseSensorOperator):
             soft_fail=soft_fail,
             mode=mode,
             task_id=task_id,
+            **kwargs,
         )
         self.session_id = session_id
         self.statement_id = statement_id
